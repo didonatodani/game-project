@@ -50,6 +50,8 @@ A class will be created for the playing cards, containing the following attribut
 - Countdown timer turning red when close to a card swap or game end
 - Heart animations when losing a life
 - Display of matched pairs on the side of the board
+- POINTS WHEN FINDING PAIRS
+- Bonus matching cards
 
 -----------------------------------------------
 

@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    align-content: center;
+}
+
+#game-area{
+    background-color: rgb(243, 121, 160);
+    width: 80%;
+    height: 600px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows:  1fr 1fr 1fr;
+    padding: 20px;
+    gap: 20px;
+    justify-items: center;
+}
+
+.card{
+    width: 130px;
+    height: 160px;
+    background-color: rgb(189, 238, 222);
+}
