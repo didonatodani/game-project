@@ -11,4 +11,9 @@ class Card {
         this.element.classList.toggle("turnedOver");
     }
 
+    //method to add class for pairs!
+    // isAMatch(){
+    //     this.element.classList.add(".is-a-match")
+    // }
+
 };

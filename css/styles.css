@@ -7,7 +7,6 @@
 
 .container{
     height: 100vh;
-    /* align-content: center; */
 }
 
 .text-container{
@@ -45,7 +44,11 @@
     }
 }
 
-#swapping-sign, .game-over-div{
+.is-a-match{
+    border: 2px red solid;
+}
+
+#swapping-sign, .game-over-div, .win-div{
     display: none;
 }
 

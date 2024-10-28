@@ -1,40 +1,20 @@
-function cardSelection (){
+function loseLives(){
+    game.lives --
+    game.updateLives();
 
-    let selectedCards = [];
-
-    game.cardsArray.forEach((card) =>{
-
-        card.element.addEventListener("click", ()=>{
-            card.turnOver()
-            selectedCards.push(card.element)
-            setTimeout(()=>{
-                if (selectedCards.length === 2){
-                    if (selectedCards[0].getAttribute("value") == selectedCards[1].getAttribute("value")){
-                        console.log("they match!")
-                        selectedCards = []
-                    } else {
-                        console.log("they dont match")
-                        selectedCards.forEach((card)=>{
-                            card.classList.remove("turnedOver")
-                        })
-                        selectedCards = [];
-                    }
-                }
-                return 
-                }, 1000 );
-        });
-        
-    });
+    if (game.lives <= 0 ){
+      game.isGameOver = true
+      game.gameOverScreen.style.display = "block";
+    }
 }
-
-cardSelection()
-
+//FIX TRY AGAIN BUTTONS!!! (RESTART GAME AND RESTART LIVES) + remove hurray if you want to keep on playing
 function restartGame() {
     game.gameOverScreen.style.display = "none";
-    game = new Game(12);
+    game.lives = 5
+    game = new Game(6);
   }
 
-  const restartButtonElement = document.querySelector("#try-again-btn");
+  const restartButtonElement = document.querySelector(".try-again-btn");
   restartButtonElement.addEventListener("click", () => {
     restartGame();
   });
