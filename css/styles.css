@@ -45,7 +45,7 @@
     }
 }
 
-#swapping-sign{
+#swapping-sign, .game-over-div{
     display: none;
 }
 
