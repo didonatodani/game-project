@@ -1,3 +1,10 @@
+game.cardsArray.forEach(card =>{
+    card.element.addEventListener("click", (e)=>{
+        card.turnOver()
+    })
+})
+
+
 function restartGame() {
     game.gameOverScreen.style.display = "none";
     game = new Game(12);

@@ -7,4 +7,8 @@ class Card {
         gameArea.appendChild(this.element);
     }
 
+    turnOver(){
+        this.element.classList.toggle("turnedOver")
+    }
+
 };

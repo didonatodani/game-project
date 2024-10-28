@@ -31,12 +31,18 @@
 .card{
     width: 130px;
     height: 160px;
-    background-color: rgb(189, 238, 222);
     color: black;
+    background-color: rgb(185, 245, 225);
     img{
         width: 100%;
+        filter: opacity(0%);
     }
-    
+}
+
+.turnedOver{
+    img{
+        filter: opacity(100%);
+    }
 }
 
 #swapping-sign{
