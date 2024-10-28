@@ -1,21 +1,17 @@
 function loseLives(){
     game.lives --
     game.updateLives();
-
-    if (game.lives <= 0 ){
-      game.isGameOver = true
-      game.gameOverScreen.style.display = "block";
-    }
 }
-//FIX TRY AGAIN BUTTONS!!! (RESTART GAME AND RESTART LIVES) + remove hurray if you want to keep on playing
+
 function restartGame() {
     game.gameOverScreen.style.display = "none";
-    game.lives = 5
+    game.winScreen.style.display = "none";
+    
     game = new Game(6);
+    game.updateLives();
   }
 
-  const restartButtonElement = document.querySelector(".try-again-btn");
-  restartButtonElement.addEventListener("click", () => {
-    restartGame();
+  document.querySelectorAll(".try-again-btn").forEach(button => {
+    button.addEventListener("click", restartGame);
   });
   

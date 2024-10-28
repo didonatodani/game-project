@@ -11,6 +11,7 @@ class Game {
       this.cardSelection();
       this.updateLives()
       this.gameOverScreen = document.querySelector(".game-over-div");
+      this.winScreen = document.querySelector(".win-div")
     }
 
     createCards(){
@@ -54,8 +55,11 @@ class Game {
                     }
 
                     if (document.querySelectorAll(".is-a-match").length == this.cardsArray.length){
-                        document.querySelector(".win-div").style.display = "block"
+                        this.winScreen.style.display = "block"
                         console.log("you won")
+                    } else if (this.lives <= 0){
+                        this.gameOverScreen.style.display = "block";
+                        console.log("you lose")
                     }
                 }, 1000 );
             });
