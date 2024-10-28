@@ -5,8 +5,26 @@ class Game {
       this.numberOfCards = numberOfCards;
       this.cardsArray = [];
       this.createCards();
-    
     }
+
+    createCards(){
+        for (let i = 0; i < this.numberOfCards; i++){
+            let card =  new Card(this.gameArea);
+            card.element.innerText = shuff_emojis[i]
+            card.element.setAttribute("value", shuff_emojis[i])
+            this.cardsArray.push(card)
+            console.log(card)
+        }
+    }
+}
+
+let game = new Game(12);
+
+
+
+
+
+
       //this.lives = 3;
       //this.level = 1;
     //   this.width = this.gameArea.getBoundingClientRect().width;
@@ -23,13 +41,3 @@ class Game {
     // }
     // updateLevel() {
     //   this.levelElement.innerText = this.level.toString();
-    createCards(){
-        for (let i = 0; i < this.numberOfCards; i++){
-            let card =  new Card(this.gameArea);
-            this.cardsArray.push(card)
-        }
-    }
-}
-
-let game = new Game(12);
-
