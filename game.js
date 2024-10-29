@@ -18,11 +18,11 @@ class Game {
         this.gameArea.innerHTML = "";
         
         //ACTIVATE ALL THE ELEMENTS!!!!
-        const catsArray = ["304","304","400","400","401","401"/*,"404","404","414","414","599","599"*/]
+        const catsArray = ["blue","blue","yellow","yellow","mix","mix","purple","purple","pink","pink","green","green"]
         const shuff_cats = catsArray.sort(() => Math.random() - 0.5)
         for (let i = 0; i < this.numberOfCards; i++){
             let card =  new Card(this.gameArea);
-            card.element.innerHTML = `<img src="./assets/${shuff_cats[i]}.jpg" class="card-img">`;
+            card.element.innerHTML = `<img src="./assets/${shuff_cats[i]}.png" class="card-img">`;
             card.element.setAttribute("value", shuff_cats[i]);
             this.cardsArray.push(card)
         }
@@ -56,6 +56,7 @@ class Game {
 
                     if (document.querySelectorAll(".is-a-match").length == this.cardsArray.length){
                         this.winScreen.style.display = "block"
+                        clearInterval(timer);
                         console.log("you won")
                     } else if (this.lives <= 0){
                         this.gameOverScreen.style.display = "block";
@@ -69,7 +70,7 @@ class Game {
     }
 
     updateLives() {
-        this.livesElement.innerText = "❤️".repeat(this.lives);
+        this.livesElement.innerText = "💜".repeat(this.lives);
     }
 
 }

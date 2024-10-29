@@ -1,63 +1,57 @@
-const DURATION = 125; // 10 seconds
-let remainingTime = DURATION; // Countdown starting from 10
-let timer = null; // Variable to store the interval
+let DURATION = 125;
+let remainingTime = DURATION;
+let timer = null;
 
-const message1 = " GAME ON! "
-// const message2 = "Start the engines! 💥"
-// const message3 = "Lift off! 🚀"
-// const toastMessage = document.querySelector("#toast-message")
+const message1 = "💥 GAME ON! 💥 ";
+const message2 = "🌌 TIME TO SHUFFLE! 🌌 "
+const message3 = "🙀 30 SECS TO FINISH! 🙀"
 
-// ITERATION 1: Add event listener to the start button
+const toastMessage = document.querySelector("#toast-message")
 
-// Your code goes here ...
+document.querySelectorAll("button").forEach((button) =>
+  button.addEventListener("click", () => {
+    startCountdown();
+  })
+);
 
-const startButton = document.querySelector("#start-btn");
-startButton.addEventListener("click", () => {
-  startCountdown();
-});
-
-// ITERATION 2: Start Countdown
 function startCountdown() {
-  
+    //IS THERE A WAY NOT TO REPEAT THIS???
+    DURATION = 125;
+    remainingTime = DURATION;
+    timer = null;
+
   timer = setInterval(() => {
-    // startButton.disabled = true;
     remainingTime--;
     console.log(remainingTime);
-    const timerElement = document.querySelector('#time')
+    const timerElement = document.querySelector("#time");
     timerElement.innerText = remainingTime;
-    if (remainingTime === 120){
-        game.cardsArray.forEach(card =>{
-            card.turnOver()
-        })
-        console.log("hello")
-    //   showToast(message1)
-    // } else if (remainingTime === 5){
-    //   showToast(message2)
+    if (remainingTime === 120) {
+      game.cardsArray.forEach((card) => {
+        card.turnOver();
+      });
+      console.log("hello");
+      showToast(message1)
+    } else if (remainingTime === 60) {
+      showToast(message2)
+    } else if (remainingTime === 30) {
+        showToast(message3)
     } else if (remainingTime <= 0) {
       clearInterval(timer);
-    //   showToast(message3)
-    //   remainingTime = DURATION+1;
-    //   startButton.disabled = false;
+      game.gameOverScreen.style.display = "block";
+      console.log("you lose"); //MAKE IT TOASTTTTT
+      remainingTime = DURATION + 1;
     }
   }, 1000);
-
 }
 
-// ITERATION 3: Show Toast
-// function showToast(message) {
+function showToast(message) {
 
-//   const toastMessageElement = document.querySelector("#toast")
-//   toastMessageElement.classList.add("show")
-//   const closeButton = document.querySelector('#close-toast')
-//   closeButton.addEventListener('click', () => {
-//     toastMessageElement.classList.remove("show")
-//   })
+  const toastMessageElement = document.querySelector("#toast")
+  toastMessageElement.classList.add("show")
 
-//   toastMessage.innerText = message
-//   // BONUS: ITERATION 4: TOAST CLOSE BUTTON
+  toastMessage.innerText = message
 
-//   // Your code goes here ...
-//   setTimeout(()=>{
-//     toastMessageElement.classList.remove("show")
-//   }, 3000);
-// }
+  setTimeout(()=>{
+    toastMessageElement.classList.remove("show")
+  }, 2000);
+}

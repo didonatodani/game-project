@@ -1,12 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Code+Latin:wdth,wght@112.5,100..700&family=Press+Start+2P&display=swap');
+
+/* 
+font-family: "Press Start 2P", system-ui;
+font-family: "M PLUS Code Latin", monospace;
+*/
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     text-align: center;
 }
+h1, h2{
+    font-family: "Press Start 2P", system-ui;
+    font-size: 50px;
+    color: #fff;
+    text-shadow: 3px 3px 1px rgb(39, 252, 92);
+    margin: 10px;
+}
 
+p, button, span{
+    font-family: "M PLUS Code Latin", monospace;
+    color: #fff;
+    margin: 10px;
+}
 .container{
     height: 100vh;
+    background-color: rgb(30, 30, 30);
+    padding: 40px 20px;
 }
 
 .text-container{
@@ -15,23 +35,24 @@
 }
 
 #game-area{
-    background-color: rgb(243, 121, 160);
+    background-color: rgb(40, 40, 40);
     width: 80%;
-    height: 600px;
+    height: fit-content;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows:  1fr 1fr 1fr;
-    padding: 20px;
+    padding: 40px;
     gap: 20px;
     justify-items: center;
 }
 
 .card{
     width: 130px;
-    height: 160px;
-    color: black;
-    background-color: rgb(185, 245, 225);
+    height: 130px;
+    background-color: rgb(30, 30, 30);
+    border: #9e2aeb 1.5px solid;
+    border-radius: 2px;
     img{
         width: 100%;
         filter: opacity(100%);
@@ -52,3 +73,61 @@
     display: none;
 }
 
+/* TOAST STYLESSSSSS */
+
+.toast {
+    visibility: hidden;
+    min-width: 200px;
+    min-height: 20px;
+    background-color: #084fba;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 26px;
+    font-size: 17px;
+    z-index: 1;
+    transform: translateX(-50%); /* Center the toast dynamically */ 
+    overflow: hidden;
+  }
+  
+  .show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.9s 2.5s;
+    animation: fadein 0.5s, fadeout 0.9s 2.5s;
+  }
+  
+  
+  @-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 26px; opacity: 1;}
+  }
+  
+  @keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 26px; opacity: 1;}
+  }
+  
+  @-webkit-keyframes fadeout {
+    from {bottom: 26px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
+  
+  @keyframes fadeout {
+    from {bottom: 26px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
+/*   
+  #close-toast {
+    position: absolute;
+    top: 4px;
+    right: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    overflow: hidden;
+  } */
