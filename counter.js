@@ -1,10 +1,10 @@
-let DURATION = 124;
+let DURATION = 64;
 let remainingTime = DURATION;
 let timer = null;
 
 const message1 = "💥 GAME ON! 💥 ";
 const message2 = "🌌 TIME TO SHUFFLE! 🌌 "
-const message3 = "🙀 30 SECS TO FINISH! 🙀"
+const message3 = "🙀 15 SECS! 🙀"
 
 const toastMessage = document.querySelector("#toast-message")
 
@@ -16,7 +16,7 @@ document.querySelectorAll("button").forEach((button) =>
 
 function startCountdown() {
     //IS THERE A WAY NOT TO REPEAT THIS???
-    DURATION = 124;
+    DURATION = 64;
     remainingTime = DURATION;
     timer = null;
 
@@ -25,20 +25,23 @@ function startCountdown() {
     console.log(remainingTime);
     const timerElement = document.querySelector("#time");
     timerElement.innerText = remainingTime;
-    if (remainingTime === 120) {
-      game.cardsArray.forEach((card) => {
-        card.turnOver();
-      });
-      console.log("hello");
-      showToast(message1)
-    } else if (remainingTime === 60) {
-      showToast(message2)
-    } else if (remainingTime === 30) {
-        showToast(message3)
-    } else if (remainingTime <= 0) {
-      clearInterval(timer);
-      game.gameOverScreen.style.display = "block";
-    //   remainingTime = DURATION + 1;
+
+    switch (remainingTime){
+        case 60:
+            showToast(message1)
+            game.cardsArray.forEach((card) => {
+            card.turnOver();
+            });
+        break;
+        case 30:
+            showToast(message2)
+            break;
+        case 15:
+            showToast(message3)
+            break;
+        case 0:
+            clearInterval(timer);
+            game.gameOverScreen.style.display = "block";
     }
   }, 1000);
 }
@@ -54,5 +57,5 @@ function showToast(message) {
   setTimeout(()=>{
     toastMessageElement.classList.remove("show");
     toastMessageElement.classList.add("hide");
-  }, 2000);
+  }, 1500);
 }

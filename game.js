@@ -17,14 +17,14 @@ class Game {
         this.gameArea.style.display = "grid";
   
         const catsArray = ["blue","blue","yellow","yellow","mix","mix","purple","purple","pink","pink","green","green"]
-        const shuff_cats = catsArray.sort(() => Math.random() - 0.5)
+        const shuffledCats = catsArray.sort(() => Math.random() - 0.5).slice(0, this.numberOfCards)
 
-        for (let i = 0; i < this.numberOfCards; i++){
+        this.cardsArray = shuffledCats.map((cat)=>{
             let card =  new Card(this.gameArea);
-            card.element.innerHTML = `<img src="./assets/${shuff_cats[i]}.png" class="card-img">`;
-            card.element.setAttribute("value", shuff_cats[i]);
-            this.cardsArray.push(card)
-        }
+            card.element.innerHTML = `<img src="./assets/${cat}.png" class="card-img">`;
+            card.element.setAttribute("value", cat);
+            return card
+        })
     }
 
     cardSelection(){
@@ -36,20 +36,36 @@ class Game {
                 card.turnOver()
                 selectedCards.push(card.element)
                 setTimeout(()=>{
-                    if (selectedCards.length === 2){
-                        if (selectedCards[0].getAttribute("value") == selectedCards[1].getAttribute("value")){
+                    // if (selectedCards.length === 2){
+                    //     if (selectedCards[0].getAttribute("value") == selectedCards[1].getAttribute("value")){
+                    //         selectedCards.forEach((card)=>{
+                    //             card.classList.add("is-a-match")
+                    //             card.classList.remove("hover-effect")
+                    //         })
+                    //         selectedCards = []
+                    //     } else {
+                    //         loseLives()
+                    //         selectedCards.forEach((card)=>{
+                    //             setTimeout(()=>{card.classList.toggle("turned-over")}, 500)
+                    //         })
+                    //         selectedCards = [];
+                    //     }
+                    // }
+
+                    if (selectedCards.length === 2 && selectedCards[0].getAttribute("value") === selectedCards[1].getAttribute("value")){
                             selectedCards.forEach((card)=>{
                                 card.classList.add("is-a-match")
+                                card.classList.remove("hover-effect")
                             })
                             selectedCards = []
-                        } else {
+                        } else if (selectedCards.length === 2){
                             loseLives()
                             selectedCards.forEach((card)=>{
                                 setTimeout(()=>{card.classList.toggle("turned-over")}, 500)
                             })
                             selectedCards = [];
                         }
-                    }
+
 
                     if (document.querySelectorAll(".is-a-match").length == this.cardsArray.length){
                         this.winScreen.style.display = "block"
@@ -65,7 +81,7 @@ class Game {
     }
 
     updateLives() {
-        this.livesElement.innerText = "💜".repeat(this.lives);
+        this.livesElement.innerText = "💙".repeat(this.lives);
     }
 
 }

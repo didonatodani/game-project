@@ -4,12 +4,19 @@
 font-family: "Press Start 2P", system-ui;
 font-family: "M PLUS Code Latin", monospace;
 */
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     text-align: center;
 }
+
+body{
+    background-color: rgb(30, 30, 30);
+    padding: 30px 20px;
+}
+
 h1, h2{
     font-family: "Press Start 2P", system-ui;
     font-size: 50px;
@@ -23,11 +30,6 @@ p, button, span{
     color: #fff;
     margin: 10px;
 }
-.container{
-    height: 100vh;
-    background-color: rgb(30, 30, 30);
-    padding: 40px 20px;
-}
 
 .text-container{
     display: flex;
@@ -37,7 +39,6 @@ p, button, span{
 #game-area{
     background-color: rgb(40, 40, 40);
     width: 80%;
-    height: fit-content;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -63,6 +64,12 @@ p, button, span{
         transform: rotateY(0);
         backface-visibility: hidden; 
     }
+}
+
+.hover-effect:hover{
+    scale: 1.05;
+    transition: 300ms;
+    cursor: pointer;
 }
 
 .turned-over{
@@ -91,6 +98,7 @@ p, button, span{
     width: 100%;
     height: 100%;
     align-content: center;
+    animation: fadein .7s forwards;
 }
 
 #instructions{
@@ -98,9 +106,9 @@ p, button, span{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgb(40, 40, 40);
+    background: radial-gradient(circle, rgba(75,75,75,1) 3%, rgba(23,23,23,1) 58%);
     width: 100dvw;
-    height: 100dvh;
+    height: 100%;
     align-content: center;
     line-height: 100px;
     padding: 0 20%;
@@ -117,6 +125,7 @@ button{
 button:hover{
     background-color: #9e2aeb;
     color: white;
+    cursor: pointer;
 }
 
 
@@ -126,7 +135,7 @@ button:hover{
     visibility: hidden;
     min-width: 200px;
     min-height: 50px;
-    background-color: #9e2aeb;
+    background-color: #9e2aebc0;
     color: #fff;
     text-align: center;
     border-radius: 2px;
