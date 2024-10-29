@@ -34,13 +34,13 @@
     background-color: rgb(185, 245, 225);
     img{
         width: 100%;
-        filter: opacity(0%);
+        filter: opacity(100%);
     }
 }
 
-.turnedOver{
+.turned-over{
     img{
-        filter: opacity(100%);
+        filter: opacity(0%);
     }
 }
 

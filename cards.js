@@ -8,6 +8,6 @@ class Card {
     }
 
     turnOver(){
-        this.element.classList.toggle("turnedOver");
+        this.element.classList.toggle("turned-over");
     }
 };

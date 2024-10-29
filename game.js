@@ -1,11 +1,11 @@
-
 class Game {
     constructor(numberOfCards) {
-      this.isGameOver = false;
+    //   this.isGameOver = false;
       this.gameArea = document.querySelector("#game-area");
       this.lives = 5;
       this.livesElement =  document.querySelector("#lives")
       this.numberOfCards = numberOfCards;
+      
       this.cardsArray = [];
       this.createCards();
       this.cardSelection();
@@ -22,7 +22,7 @@ class Game {
         const shuff_cats = catsArray.sort(() => Math.random() - 0.5)
         for (let i = 0; i < this.numberOfCards; i++){
             let card =  new Card(this.gameArea);
-            card.element.innerHTML = `<img src="./assets/${shuff_cats[i]}.jpg">`;
+            card.element.innerHTML = `<img src="./assets/${shuff_cats[i]}.jpg" class="card-img">`;
             card.element.setAttribute("value", shuff_cats[i]);
             this.cardsArray.push(card)
         }
@@ -48,7 +48,7 @@ class Game {
                             console.log("they dont match")
                             loseLives()
                             selectedCards.forEach((card)=>{
-                                card.classList.remove("turnedOver")
+                                card.classList.toggle("turned-over")
                             })
                             selectedCards = [];
                         }
@@ -59,9 +59,10 @@ class Game {
                         console.log("you won")
                     } else if (this.lives <= 0){
                         this.gameOverScreen.style.display = "block";
+                        clearInterval(timer);
                         console.log("you lose")
                     }
-                }, 1000 );
+                }, 1500 );
             });
             
         });
@@ -73,11 +74,10 @@ class Game {
 
 }
 
-//CHANGE THIS NUMBER TO 12!!!!!
-let game = new Game(6);
+let game;
 
-
-      //this.level = 1;
+//LEVELS:
+    //this.level = 1;
 
     //   this.levelElement = document.querySelector("#level");
 
