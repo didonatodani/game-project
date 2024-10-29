@@ -3,7 +3,7 @@ let remainingTime = DURATION;
 let timer = null;
 
 const message1 = "💥 GAME ON! 💥 ";
-const message2 = "🌌 TIME TO SHUFFLE! 🌌 "
+const message2 = "🌌 SHUFFLE TIME! 🌌 "
 const message3 = "🙀 15 SECS! 🙀"
 
 const toastMessage = document.querySelector("#toast-message")
