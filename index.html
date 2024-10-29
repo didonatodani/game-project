@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/styles.css">
     <title>MEMORY</title>
 </head>
+
 <body>
     <section class="container">
+        <div id="instructions">
+            <h2>Welcome to... <br>MEMORY CATS</h2>
+            <p>Find the kittens' pairs before something happens! You have 2 minutes.</p>
+            <button id="start-btn">START</button>
+        </div>
         <h1>Memory Cats</h1>
         <div class="text-container">
             <p id="lives"></p>
             <p id="time"></p>
         </div>
-        <div id="game-area">
-            <div id="instructions">
-                <h2>Welcome to....</h2>
-                <p>instructionsinstructionsinstructionsinstructionsinstructionsinstructionsinstructionsinstructions</p>
-                <button id="start-btn">START</button>
-            </div>
-        </div>
+        <div id="game-area"></div>
         <h2 id="swapping-sign">Swapping time!</h2>
         <div class="win-div">
             <h2>HURRAY, YOU WON!</h2>
@@ -31,13 +32,14 @@
         </div>
         <div id="toast" class="toast">
             <span id="toast-message"></span>
-          </div>
+        </div>
     </section>
-    
+
 
     <script src="./cards.js"></script>
     <script src="./counter.js"></script>
     <script src="./game.js"></script>
     <script src="./logic.js"></script>
 </body>
+
 </html>

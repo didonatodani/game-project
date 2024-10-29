@@ -1,6 +1,5 @@
 function startGame(){
   document.querySelector("#instructions").style.display = "none"
-  //CHANGE THIS NUMBER TO 12!!!!!
   game = new Game(12);
 }
 

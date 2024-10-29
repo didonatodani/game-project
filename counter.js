@@ -1,4 +1,4 @@
-let DURATION = 125;
+let DURATION = 124;
 let remainingTime = DURATION;
 let timer = null;
 
@@ -16,7 +16,7 @@ document.querySelectorAll("button").forEach((button) =>
 
 function startCountdown() {
     //IS THERE A WAY NOT TO REPEAT THIS???
-    DURATION = 125;
+    DURATION = 124;
     remainingTime = DURATION;
     timer = null;
 
@@ -38,8 +38,7 @@ function startCountdown() {
     } else if (remainingTime <= 0) {
       clearInterval(timer);
       game.gameOverScreen.style.display = "block";
-      console.log("you lose"); //MAKE IT TOASTTTTT
-      remainingTime = DURATION + 1;
+    //   remainingTime = DURATION + 1;
     }
   }, 1000);
 }
@@ -47,11 +46,13 @@ function startCountdown() {
 function showToast(message) {
 
   const toastMessageElement = document.querySelector("#toast")
+  toastMessageElement.classList.remove("hide");
   toastMessageElement.classList.add("show")
 
   toastMessage.innerText = message
 
   setTimeout(()=>{
-    toastMessageElement.classList.remove("show")
+    toastMessageElement.classList.remove("show");
+    toastMessageElement.classList.add("hide");
   }, 2000);
 }

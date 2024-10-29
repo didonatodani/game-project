@@ -1,11 +1,9 @@
 class Game {
     constructor(numberOfCards) {
-    //   this.isGameOver = false;
       this.gameArea = document.querySelector("#game-area");
       this.lives = 5;
       this.livesElement =  document.querySelector("#lives")
       this.numberOfCards = numberOfCards;
-      
       this.cardsArray = [];
       this.createCards();
       this.cardSelection();
@@ -16,10 +14,11 @@ class Game {
 
     createCards(){
         this.gameArea.innerHTML = "";
-        
-        //ACTIVATE ALL THE ELEMENTS!!!!
+        this.gameArea.style.display = "grid";
+  
         const catsArray = ["blue","blue","yellow","yellow","mix","mix","purple","purple","pink","pink","green","green"]
         const shuff_cats = catsArray.sort(() => Math.random() - 0.5)
+
         for (let i = 0; i < this.numberOfCards; i++){
             let card =  new Card(this.gameArea);
             card.element.innerHTML = `<img src="./assets/${shuff_cats[i]}.png" class="card-img">`;
@@ -39,16 +38,14 @@ class Game {
                 setTimeout(()=>{
                     if (selectedCards.length === 2){
                         if (selectedCards[0].getAttribute("value") == selectedCards[1].getAttribute("value")){
-                            console.log("they match!")
                             selectedCards.forEach((card)=>{
                                 card.classList.add("is-a-match")
                             })
                             selectedCards = []
                         } else {
-                            console.log("they dont match")
                             loseLives()
                             selectedCards.forEach((card)=>{
-                                card.classList.toggle("turned-over")
+                                setTimeout(()=>{card.classList.toggle("turned-over")}, 500)
                             })
                             selectedCards = [];
                         }
@@ -57,13 +54,11 @@ class Game {
                     if (document.querySelectorAll(".is-a-match").length == this.cardsArray.length){
                         this.winScreen.style.display = "block"
                         clearInterval(timer);
-                        console.log("you won")
                     } else if (this.lives <= 0){
                         this.gameOverScreen.style.display = "block";
                         clearInterval(timer);
-                        console.log("you lose")
                     }
-                }, 1500 );
+                }, 500 );
             });
             
         });
@@ -76,11 +71,3 @@ class Game {
 }
 
 let game;
-
-//LEVELS:
-    //this.level = 1;
-
-    //   this.levelElement = document.querySelector("#level");
-
-    // updateLevel() {
-    //   this.levelElement.innerText = this.level.toString();
