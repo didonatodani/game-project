@@ -5,12 +5,11 @@ class Card {
         this.element = document.createElement("div");
         this.element.classList.add("card");
         this.element.classList.add("hover-effect");
-        this.hasTurnedOver = false
         gameArea.appendChild(this.element);
     }
 
     turnOver(){
     //ADD CONDITION SO THAT IT DOES TURN OVER TWICE!
-            this.element.classList.toggle("turned-over");  
+            this.element.classList.toggle("not-turned-over");  
     }
 };

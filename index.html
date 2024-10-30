@@ -4,15 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="favicon">
     <link rel="stylesheet" href="./css/styles.css">
-    <title>Matching Kittens</title>
+    <title>Matching Kittens - Memory Game</title>
 </head>
 
 <body>
     <section class="container">
         <div id="instructions">
             <h2>Welcome to... <br>MEMORY GAME</h2>
-            <p>Find the kittens' pairs before something happens! You have 1 minute to solve it!.</p>
+            <p>Find the kittens' pairs before something happens! You have 60 seconds to solve it!.</p>
             <button id="start-btn">START</button>
         </div>
         <h1>Matching Kittens</h1>
@@ -26,14 +27,13 @@
             <button class="try-again-btn">Try again</button>
         </div>
         <div class="game-over-div">
-            <h2>GAME OVER!</h2>
+            <h2>GAME OVER</h2>
             <button class="try-again-btn">Try again</button>
         </div>
         <div id="toast" class="toast">
             <span id="toast-message"></span>
         </div>
     </section>
-
 
     <script src="./cards.js"></script>
     <script src="./counter.js"></script>

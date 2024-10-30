@@ -72,7 +72,7 @@ p, button, span{
     cursor: pointer;
 }
 
-.turned-over{
+.not-turned-over{
     img{
         opacity: 0;
         transform: rotateY(180deg);

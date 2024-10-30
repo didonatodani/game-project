@@ -33,8 +33,9 @@ function startCountdown() {
             card.turnOver();
             });
         break;
-        case 30:
+        case 40:
             showToast(message2)
+            game.shuffleCards()
             break;
         case 15:
             showToast(message3)
