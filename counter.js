@@ -3,10 +3,10 @@ let remainingTime = DURATION;
 let timer = null;
 
 const message1 = "💥 GAME ON! 💥 ";
-const message2 = "🌌 SHUFFLE TIME! 🌌 "
-const message3 = "🙀 15 SECS! 🙀"
+const message2 = "🌌 SHUFFLE TIME! 🌌 ";
+const message3 = "🙀 15 SECS! 🙀";
 
-const toastMessage = document.querySelector("#toast-message")
+const toastMessage = document.querySelector("#toast-message");
 
 document.querySelectorAll("button").forEach((button) =>
   button.addEventListener("click", () => {
@@ -15,10 +15,10 @@ document.querySelectorAll("button").forEach((button) =>
 );
 
 function startCountdown() {
-    //IS THERE A WAY NOT TO REPEAT THIS???
-    DURATION = 64;
-    remainingTime = DURATION;
-    timer = null;
+  //IS THERE A WAY NOT TO REPEAT THIS???
+  DURATION = 64;
+  remainingTime = DURATION;
+  timer = null;
 
   timer = setInterval(() => {
     remainingTime--;
@@ -26,42 +26,43 @@ function startCountdown() {
     const timerElement = document.querySelector("#time");
     timerElement.innerText = remainingTime;
 
-    switch (remainingTime){
-        case 64:
-            break;
-        case 60:
-            showToast(message1)
-            game.cardSelection()
-            game.cardsArray.forEach((card) => {
-            card.turnOver();
-            });
+  if (!game.isGameOver){
+    switch (remainingTime) {
+      case 64:
         break;
-        case 35:
-            showToast(message2)
-            setTimeout(()=>{
-              game.shuffleCards()
-            }, 500)
-            
-            break;
-        case 15:
-            showToast(message3)
-            break;
-        case 0:
-            clearInterval(timer);
-            game.gameOverScreen.style.display = "block";
+      case 60:
+        showToast(message1);
+        game.cardSelection();
+        game.cardsArray.forEach((card) => {
+          card.turnOver();
+        });
+        break;
+      case 35:
+        showToast(message2);
+        setTimeout(() => {
+          game.shuffleCards();
+        }, 500);
+
+        break;
+      case 15:
+        showToast(message3);
+        break;
+      case 0:
+        clearInterval(timer);
+        game.gameOverScreen.style.display = "block";
     }
+  }
   }, 1000);
 }
 
 function showToast(message) {
-
-  const toastMessageElement = document.querySelector("#toast")
+  const toastMessageElement = document.querySelector("#toast");
   toastMessageElement.classList.remove("hide");
-  toastMessageElement.classList.add("show")
+  toastMessageElement.classList.add("show");
 
-  toastMessage.innerText = message
+  toastMessage.innerText = message;
 
-  setTimeout(()=>{
+  setTimeout(() => {
     toastMessageElement.classList.remove("show");
     toastMessageElement.classList.add("hide");
   }, 1500);

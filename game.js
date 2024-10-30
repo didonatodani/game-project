@@ -1,12 +1,12 @@
 class Game {
   constructor(numberOfCards) {
+    this.isGameOver = false;
     this.gameArea = document.querySelector("#game-area");
-    this.lives = 5;
+    this.lives = 3;
     this.livesElement = document.querySelector("#lives");
     this.numberOfCards = numberOfCards;
     this.cardsArray = [];
     this.createCards();
-    //   this.cardSelection();
     this.updateLives();
     this.shuffleCards();
     this.gameOverScreen = document.querySelector(".game-over-div");
@@ -31,6 +31,7 @@ class Game {
       "green",
       "green",
     ];
+
     const shuffledCats = catsArray
       .sort(() => Math.random() - 0.5)
       .slice(0, this.numberOfCards);
@@ -100,9 +101,11 @@ class Game {
             document.querySelectorAll(".is-a-match").length ==
             this.cardsArray.length
           ) {
+            this.isGameOver = true;
             this.winScreen.style.display = "block";
             clearInterval(timer);
           } else if (this.lives <= 0) {
+            this.isGameOver = true;
             this.gameOverScreen.style.display = "block";
             clearInterval(timer);
           }
