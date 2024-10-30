@@ -27,15 +27,21 @@ function startCountdown() {
     timerElement.innerText = remainingTime;
 
     switch (remainingTime){
+        case 64:
+            break;
         case 60:
             showToast(message1)
+            game.cardSelection()
             game.cardsArray.forEach((card) => {
             card.turnOver();
             });
         break;
-        case 40:
+        case 35:
             showToast(message2)
-            game.shuffleCards()
+            setTimeout(()=>{
+              game.shuffleCards()
+            }, 500)
+            
             break;
         case 15:
             showToast(message3)
