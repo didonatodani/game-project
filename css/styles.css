@@ -39,6 +39,26 @@ span {
   justify-content: space-around;
 }
 
+.js-cat{
+  width: 200px;
+  margin: 30px;
+  animation: rotate 5s infinite;
+}
+
+.cat-1, .cat-2{
+  position: absolute;
+}
+
+.cat-1{
+  top: 100px;
+  left: 100px;
+}
+
+.cat-2{
+  bottom: 100px;
+  right: 100px;
+}
+
 #instructions {
   position: absolute;
   top: 50%;
@@ -119,7 +139,7 @@ span {
   align-content: center;
   animation: fadein .7s forwards;
 }
-#js-cat{
+.js-cat{
   width: 200px;
   margin: 30px;
   animation: rotate 5s infinite;
@@ -256,4 +276,19 @@ button:hover {
     bottom: 0;
     opacity: 0;
   }
+}
+
+/* MUSIC PLAYER STYLES */
+
+.music-container {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  #play-pause-btn{
+    background-color: #212121e9;
+    animation: none;
+  }
+}
+.hide{
+  display: none;
 }

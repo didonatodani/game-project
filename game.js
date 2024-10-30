@@ -1,14 +1,11 @@
 class Game {
   constructor(numberOfCards) {
-    this.isGameOver = false;
     this.gameArea = document.querySelector("#game-area");
-    this.lives = 3;
+    this.lives = 4;
     this.livesElement = document.querySelector("#lives");
     this.numberOfCards = numberOfCards;
     this.cardsArray = [];
     this.createCards();
-    this.updateLives();
-    this.shuffleCards();
     this.gameOverScreen = document.querySelector(".game-over-div");
     this.winScreen = document.querySelector(".win-div");
   }
@@ -57,9 +54,6 @@ class Game {
 
     this.cardsArray.forEach((card) => {
       this.gameArea.appendChild(card.element);
-    });
-
-    this.cardsArray.forEach((card) => {
       if (card.element.classList.contains("not-turned-over")) {
         card.element.classList.add("not-turned-over");
       }
@@ -71,17 +65,15 @@ class Game {
 
     this.cardsArray.forEach((card) => {
       card.element.addEventListener("click", () => {
+
         if (selectedCards.includes(card.element)) {
           return;
         }
+        
         card.turnOver();
         selectedCards.push(card.element);
         setTimeout(() => {
-          if (
-            selectedCards.length === 2 &&
-            selectedCards[0].getAttribute("value") ===
-              selectedCards[1].getAttribute("value")
-          ) {
+          if (isAMatch(selectedCards)) {
             selectedCards.forEach((card) => {
               card.classList.add("is-a-match");
               card.classList.remove("hover-effect");
@@ -101,13 +93,11 @@ class Game {
             document.querySelectorAll(".is-a-match").length ==
             this.cardsArray.length
           ) {
-            this.isGameOver = true;
+            clearInterval(timer);
             this.winScreen.style.display = "block";
-            clearInterval(timer);
           } else if (this.lives <= 0) {
-            this.isGameOver = true;
-            this.gameOverScreen.style.display = "block";
             clearInterval(timer);
+            this.gameOverScreen.style.display = "block";
           }
         }, 500);
       });

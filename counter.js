@@ -1,59 +1,16 @@
-let DURATION = 64;
-let remainingTime = DURATION;
-let timer = null;
+// let DURATION = 64;
+// let remainingTime = DURATION;
+// let timer = null;
+
+let DURATION;
+let remainingTime;
+let timer;
 
 const message1 = "💥 GAME ON! 💥 ";
 const message2 = "🌌 SHUFFLE TIME! 🌌 ";
 const message3 = "🙀 15 SECS! 🙀";
 
 const toastMessage = document.querySelector("#toast-message");
-
-document.querySelectorAll("button").forEach((button) =>
-  button.addEventListener("click", () => {
-    startCountdown();
-  })
-);
-
-function startCountdown() {
-  //IS THERE A WAY NOT TO REPEAT THIS???
-  DURATION = 64;
-  remainingTime = DURATION;
-  timer = null;
-
-  timer = setInterval(() => {
-    remainingTime--;
-    console.log(remainingTime);
-    const timerElement = document.querySelector("#time");
-    timerElement.innerText = remainingTime;
-
-  if (!game.isGameOver){
-    switch (remainingTime) {
-      case 64:
-        break;
-      case 60:
-        showToast(message1);
-        game.cardSelection();
-        game.cardsArray.forEach((card) => {
-          card.turnOver();
-        });
-        break;
-      case 35:
-        showToast(message2);
-        setTimeout(() => {
-          game.shuffleCards();
-        }, 500);
-
-        break;
-      case 15:
-        showToast(message3);
-        break;
-      case 0:
-        clearInterval(timer);
-        game.gameOverScreen.style.display = "block";
-    }
-  }
-  }, 1000);
-}
 
 function showToast(message) {
   const toastMessageElement = document.querySelector("#toast");
@@ -66,4 +23,40 @@ function showToast(message) {
     toastMessageElement.classList.remove("show");
     toastMessageElement.classList.add("hide");
   }, 1500);
+}
+
+function startCountdown() {
+
+  DURATION = 64;
+  remainingTime = DURATION;
+  timer = null;
+
+  timer = setInterval(() => {
+    remainingTime--;
+    console.log(remainingTime);
+    const timerElement = document.querySelector("#time");
+    timerElement.innerText = remainingTime;
+
+    switch (remainingTime) {
+      case 60:
+        showToast(message1);
+        game.cardSelection();
+        game.cardsArray.forEach((card) => {
+          card.turnOver();
+        });
+        break;
+      case 35:
+        showToast(message2);
+        setTimeout(() => {
+          game.shuffleCards();
+        }, 500);
+        break;
+      case 15:
+        showToast(message3);
+        break;
+      case 0:
+        game.gameOverScreen.style.display = "block";
+        clearInterval(timer);
+    }
+  }, 1000);
 }
