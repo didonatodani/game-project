@@ -57,8 +57,8 @@ span {
 .cat-2{
   bottom: 100px;
   right: 100px;
-}
 
+}
 #instructions {
   position: absolute;
   top: 50%;
@@ -68,8 +68,10 @@ span {
   width: 100dvw;
   height: 100%;
   align-content: center;
-  line-height: 100px;
   padding: 0 20%;
+  h2{
+    line-height: 100px;
+  }
 }
 
 #game-area {

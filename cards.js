@@ -9,7 +9,6 @@ class Card {
   }
 
   turnOver() {
-    //ADD CONDITION SO THAT IT DOES TURN OVER TWICE!
     this.element.classList.toggle("not-turned-over");
   }
 }

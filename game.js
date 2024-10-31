@@ -6,6 +6,7 @@ class Game {
     this.numberOfCards = numberOfCards;
     this.cardsArray = [];
     this.createCards();
+    this.updateLives();
     this.gameOverScreen = document.querySelector(".game-over-div");
     this.winScreen = document.querySelector(".win-div");
   }
@@ -26,7 +27,7 @@ class Game {
       "pink",
       "pink",
       "green",
-      "green",
+      "green"
     ];
 
     const shuffledCats = catsArray
@@ -69,7 +70,7 @@ class Game {
         if (selectedCards.includes(card.element)) {
           return;
         }
-        
+
         card.turnOver();
         selectedCards.push(card.element);
         setTimeout(() => {
