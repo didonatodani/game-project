@@ -38,4 +38,3 @@ document.querySelectorAll(".try-again-btn").forEach(button => {
 const startButton = document.querySelector("#start-btn");
 startButton.addEventListener("click", startGame);
 startButton.addEventListener("click", startCountdown)
-  

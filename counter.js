@@ -1,13 +1,9 @@
-// let DURATION = 64;
-// let remainingTime = DURATION;
-// let timer = null;
-
 let DURATION;
 let remainingTime;
 let timer;
 
 const message1 = "💥 GAME ON! 💥 ";
-const message2 = "🌌 SHUFFLE TIME! 🌌 ";
+const message2 = "🌌 MIX, MIX, MIX! 🌌 ";
 const message3 = "🙀 15 SECS! 🙀";
 
 const toastMessage = document.querySelector("#toast-message");
@@ -33,7 +29,6 @@ function startCountdown() {
 
   timer = setInterval(() => {
     remainingTime--;
-    console.log(remainingTime);
     const timerElement = document.querySelector("#time");
     timerElement.innerText = remainingTime;
 
