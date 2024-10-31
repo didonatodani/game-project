@@ -1,7 +1,7 @@
 class Game {
   constructor(numberOfCards) {
     this.gameArea = document.querySelector("#game-area");
-    this.lives = 4;
+    this.lives = 3;
     this.livesElement = document.querySelector("#lives");
     this.numberOfCards = numberOfCards;
     this.cardsArray = [];
