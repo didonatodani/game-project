@@ -67,7 +67,7 @@ class Game {
     this.cardsArray.forEach((card) => {
       card.element.addEventListener("click", () => {
 
-        if (selectedCards.includes(card.element)) {
+        if (selectedCards.includes(card.element) || card.element.matches(".is-a-match")) {
           return;
         }
 
