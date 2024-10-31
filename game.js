@@ -81,6 +81,7 @@ class Game {
             });
             selectedCards = [];
           } else if (selectedCards.length === 2) {
+            notMatchingCat();
             loseLives();
             selectedCards.forEach((card) => {
               setTimeout(() => {

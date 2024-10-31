@@ -22,6 +22,13 @@ function isAMatch(array){
   return array.length === 2 && array[0].getAttribute("value") === array[1].getAttribute("value")
 }
 
+function notMatchingCat(){
+  document.querySelector("#not-matching-cat").classList.remove("hide")
+  setTimeout(()=>{
+    document.querySelector("#not-matching-cat").classList.add("hide")
+  }, 1000)
+}
+
 document.querySelectorAll(".try-again-btn").forEach(button => {
   button.addEventListener("click", restartGame);
   button.addEventListener("click", startCountdown)

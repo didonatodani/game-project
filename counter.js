@@ -14,14 +14,14 @@ const toastMessage = document.querySelector("#toast-message");
 
 function showToast(message) {
   const toastMessageElement = document.querySelector("#toast");
-  toastMessageElement.classList.remove("hide");
+  toastMessageElement.classList.remove("hide-toast");
   toastMessageElement.classList.add("show");
 
   toastMessage.innerText = message;
 
   setTimeout(() => {
     toastMessageElement.classList.remove("show");
-    toastMessageElement.classList.add("hide");
+    toastMessageElement.classList.add("hide-toast");
   }, 1500);
 }
 
