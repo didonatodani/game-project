@@ -41,7 +41,7 @@
 }
 
 
-function createBullet() {
+function createBullet() { // this can also be implemented in the player class
   if (isShooting) {
       new Bullet(player);
   }

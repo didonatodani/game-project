@@ -67,4 +67,19 @@ The Player can gain points by collecting candy. They can also gain lives by coll
 
 
 
+## Marcel's feedback
 
+The documentation is very clear and concise. The classes are well defined and the tasks are clear. 
+
+### Use of classes
+Consider reducing the number of classes by combining similar functionalities. For example, the `Player` and `Interactable` classes could be combined into a single `Character` class. This class could have a `type` attribute to differentiate between players and interactables.
+
+### Indentation
+Try to keep the indentation consistent throughout the document. Use `option` + `command` + `F` to format the document. This is going to make the files more readable.
+
+### Consistency
+There are several pieces of code that don't seem to fit the context. Or comments that are in some places and not in others. Make sure to keep the code consistent and clean. This can be related to the use of AI tools to help you with the code. Which is fine, but make sure to understand the code that is being generated and adapt it to your needs.
+
+### Overall
+The overall code is well structured and the game is fun to play. The logic can be simplified by combining similar classes and the code can be refactored to be more consistent.
+Congratulations on the game! It's a great start and I'm looking forward to seeing your next projects.

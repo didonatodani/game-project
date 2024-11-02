@@ -90,7 +90,7 @@ document.addEventListener("keydown", (e) => {
       if (frames % 2000 === 0) {
         game.level++;
         game.updateLevel();
-    
+        // careful when creating intervals inside loops, they will be created multiple times
         setInterval(createCandyLighteningBolt, 20000)
         setInterval(createCandyBandit, 10000);
         setInterval(createCottonCandyCloud, 30000);
@@ -157,6 +157,8 @@ function crashBullet(bullet, interactable) {
         interactable.handleBullet();
     }
 }
+
+// Crashtest and crashbullet functions are similar, you could refactor them into one function that takes an additional argument to determine if it's a bullet or player crash
 
 /* Audio Functions  */
 
